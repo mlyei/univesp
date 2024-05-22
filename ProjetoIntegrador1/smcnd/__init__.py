@@ -1,16 +1,14 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from ProjetoIntegrador1.config import Config
 
 db = SQLAlchemy()
 
 def  create_app():
 
     app = Flask(__name__)
-
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@localhost/nome_do_banco_de_dados'
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = 'sua_chave_secreta'
-
+    app.config.from_object(Config)
+    
     db.init_app(app)
 
     return app
