@@ -33,6 +33,7 @@ def auth_login():
 
 #inscrição na plataforma
 @auth_bp.route('/signup', methods=['GET', 'POST'])
+
 def signup():
     if request.method == 'POST':
         email = request.form['Email']

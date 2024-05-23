@@ -11,4 +11,11 @@ def  create_app():
     
     db.init_app(app)
 
+    #blueprints para as rotas
+    #from main
+    #from auth
+    #from dashboard
+    #from escolas
+    #from alunos
+
     return app
