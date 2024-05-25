@@ -1,9 +1,9 @@
 from . import db
 
-class AEEAcompanhamento(cd.Model):
+class AEEAcompanhamento(db.Model):
     __tablename__ = 'aee acompanhamento'
-    idAEE = db.Column(db.integer, primary_key=Truerue)
-    Nome = db.Column(db.string(200), nullable=True)
+    idAEE = db.Column(db.Integer, primary_key=True)
+    Nome = db.Column(db.String(200), nullable=True)
 
 class AssistenteEducacional(db.Model):
     __tablename__ = 'assistente educacional'
