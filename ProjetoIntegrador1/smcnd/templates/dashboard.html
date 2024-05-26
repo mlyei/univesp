@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        /* Adicione aqui CSS para estilizar o dashboard */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dashboard</h1>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>Total de Escolas</h3>
+                <p>{{ data.total_escolas }}</p>
+            </div>
+            <div class="stat">
+                <h3>Total de Alunos</h3>
+                <p>{{ data.total_alunos }}</p>
+            </div>
+            <div class="stat">
+                <h3>Crianças Assistidas Laudadas</h3>
+                <p>{{ data.alunos_laudados }}</p>
+            </div>
+            <div class="stat">
+                <h3>Crianças Assistidas Não Laudadas</h3>
+                <p>{{ data.alunos_sem_laudo }}</p>
+            </div>
+            <div class="stat">
+                <h3>Alunos Assistidos</h3>
+                <p>{{ data.alunos_assistidos }}</p>
+            </div>
+            <div class="stat">
+                <h3>Alunos Não Assistidos</h3>
+                <p>{{ data.alunos_nao_assistidos }}</p>
+            </div>
+        </div>
+
+        <!-- Adicionar mais graficos se necessário -->
+        <div class="charts">
+            <!-- Por exemplo, gráficos usando Chart.js -->
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // colocar aqui o JavaScript para renderizar os gráficos
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Crianças Laudadas', 'Crianças Não Laudadas'],
+                datasets: [{
+                    data: [{[data.alunos_laudados]}, {[data.alunos_sem_laudo]}],
+                    backgroundColor: ['#36a2eb', '#ff6384'],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+    </script>
+</body>
+</html>

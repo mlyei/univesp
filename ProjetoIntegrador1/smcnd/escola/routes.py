@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for, jsonif
 from smcnd.models import Escola
 from smcnd import db
 
-bp = Blueprint('escola', __name__,)
+bp = Blueprint('escola', __name__)
 
 @bp.route('/escola', methods=['GET', 'POST'])
 def manage_escola():
@@ -25,8 +25,8 @@ def manage_escola():
         db.session.commit()
         return redirect(url_for('escola.manage_escola'))
 
-escolas = Escola.query.all()
-return render_template('escola.html')
+    escolas = Escola.query.all()
+    return render_template('escola.html', escolas=escolas)
 
 @bp.route('/escola/<int:id_escola>/detalhes', methods=['GET'])
 def detalhes_escola(id_escola):

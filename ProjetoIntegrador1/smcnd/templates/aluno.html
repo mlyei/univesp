@@ -34,7 +34,7 @@
 
     <ul>
         {% for aluno in alunos %}
-            <li><a href="javascript:void(0)" onclick="buscarAluno({{ aluno.idAluno }})">{{ aluno.Nome_aluno }}</a></li>
+            <li><a href="javascript:void(0)" onclick="buscarAluno({{ aluno,idAluno }})">{{ alunoNome_aluno }}</a></li>
         {% endfor %}
     </ul>
 
@@ -50,9 +50,9 @@
         <input type="text" id="cidade" name="cidade" placeholder="Cidade" required><br>
         <input type="text" id="usuarios" name="usuarios" placeholder="usuarios" required><br>
         <input type="text" id="escola" name="escola" placeholder="escola" required><br>
-        <input type="text" id="escola" name="escola" placeholder="escola" required><br>
-        <input type="text" id="escola" name="escola" placeholder="escola" required><br>
-        <input type="text" id="escola" name="escola" placeholder="escola" required><br>
+        <input type="text" id="professor" name="professor" placeholder="professor" required><br>
+        <input type="text" id="assistente_educacional" name="assistente_educacional" placeholder="assistente_educacional" required><br>
+        <input type="text" id="aee_acompanhamento_idaee" name="aee_acompanhamento_idaee" placeholder="aee_acompanhamento_idaee" required><br>
         <button type="submit">Adicionar Aluno</button>
     </form>
 </body>

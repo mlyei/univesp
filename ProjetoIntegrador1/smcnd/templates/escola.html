@@ -5,39 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolas</title>
     <script>
-        function preencherFormulario(escola) {
-            document.getElementById('nome').value = escola.Nome;
-            document.getElementById('ensino_fundamental').checked = escola.Ensino_Fundamental;
-            document.getElementById('turmas').value = escola.Turmas;
-            document.getElementById('manha').checked = escola.Manha;
-            document.getElementById('tarde').checked = escola.Tarde;
-        }
-
         function buscarEscola(idEscola) {
-            fetch('/escola/' + idEscola + '/detalhes')
+            fetch(`/escola/${idEscola}/detalhes`)
                 .then(response => response.json())
-                .then(data => preencherFormulario(data))
-                .catch(error => console.error('Erro:', error));
+                .then(data => {
+                    document.getElementById('nome').value = data.Nome;
+                    document.getElementById('ensino_fundamental').checked = data.Ensino_Fundamental;
+                    document.getElementById('turmas').value = data.Turmas;
+                    document.getElementById('manha').checked = data.Manha;
+                    document.getElementById('tarde').checked = data.Tarde;
+                });
         }
     </script>
 </head>
 <body>
     <h1>Escolas</h1>
 
-    <ul>
-        {% for escola in escolas %}
-            <li><a href="javascript:void(0)" onclick="buscarEscola({{ escola.idEscola }})">{{ escola.Nome }}</a></li>
-        {% endfor %}
-    </ul>
+    <form method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome"><br>
 
-    <h2>Adicionar ou Ver Detalhes da Escola</h2>
-    <form method="POST" action="{{ url_for('escola.manage_escola') }}">
-        <input type="text" id="nome" name="nome" placeholder="Nome da Escola" required><br>
-        <input type="checkbox" id="ensino_fundamental" name="ensino_fundamental"> Ensino Fundamental<br>
-        <input type="text" id="turmas" name="turmas" placeholder="Turmas" required><br>
-        <input type="checkbox" id="manha" name="manha"> Manhã<br>
-        <input type="checkbox" id="tarde" name="tarde"> Tarde<br>
+        <label for="ensino_fundamental">Ensino Fundamental:</label>
+        <input type="checkbox" id="ensino_fundamental" name="ensino_fundamental"><br>
+
+        <label for="turmas">Turmas:</label>
+        <input type="text" id="turmas" name="turmas"><br>
+
+        <label for="manha">Manhã:</label>
+        <input type="checkbox" id="manha" name="manha"><br>
+
+        <label for="tarde">Tarde:</label>
+        <input type="checkbox" id="tarde" name="tarde"><br>
+
         <button type="submit">Adicionar Escola</button>
     </form>
+
+    <h2>Lista de Escolas</h2>
+    <ul>
+        {% for escola in escolas %}
+            <li>
+                <a href="javascript:void(0)" onclick="buscarEscola({{ escola.idEscola }})">
+                    {{ escola.Nome }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
