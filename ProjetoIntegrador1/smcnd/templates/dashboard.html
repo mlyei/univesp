@@ -4,58 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <style>
-        /* Adicione aqui CSS para estilizar o dashboard */
-    </style>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Dashboard</h1>
-
-        <div class="stats">
-            <div class="stat">
-                <h3>Total de Escolas</h3>
-                <p>{{ data.total_escolas }}</p>
+        <h1 class="mt-5">Dashboard</h1>
+        
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de Escolas</h5>
+                        <p class="card-text">{{ data.total_escolas }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <h3>Total de Alunos</h3>
-                <p>{{ data.total_alunos }}</p>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total de Alunos</h5>
+                        <p class="card-text">{{ data.total_alunos }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <h3>Crianças Assistidas Laudadas</h3>
-                <p>{{ data.alunos_laudados }}</p>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Crianças Assistidas Laudadas</h5>
+                        <p class="card-text">{{ data.alunos_laudados }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <h3>Crianças Assistidas Não Laudadas</h3>
-                <p>{{ data.alunos_sem_laudo }}</p>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Crianças Assistidas Não Laudadas</h5>
+                        <p class="card-text">{{ data.alunos_sem_laudo }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <h3>Alunos Assistidos</h3>
-                <p>{{ data.alunos_assistidos }}</p>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Alunos Assistidos</h5>
+                        <p class="card-text">{{ data.alunos_assistidos }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="stat">
-                <h3>Alunos Não Assistidos</h3>
-                <p>{{ data.alunos_nao_assistidos }}</p>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Alunos Não Assistidos</h5>
+                        <p class="card-text">{{ data.alunos_nao_assistidos }}</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Adicionar mais graficos se necessário -->
-        <div class="charts">
-            <!-- Por exemplo, gráficos usando Chart.js -->
-            <canvas id="myChart"></canvas>
+        <!-- Chart.js Example -->
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <canvas id="myChart"></canvas>
+            </div>
         </div>
     </div>
 
+    <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // colocar aqui o JavaScript para renderizar os gráficos
         var ctx = document.getElementById('myChart').getContext('2d');
         var myChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
                 labels: ['Crianças Laudadas', 'Crianças Não Laudadas'],
                 datasets: [{
-                    data: [{[data.alunos_laudados]}, {[data.alunos_sem_laudo]}],
+                    data: [{{ data.alunos_laudados }}, {{ data.alunos_sem_laudo }}],
                     backgroundColor: ['#36a2eb', '#ff6384'],
                 }]
             },

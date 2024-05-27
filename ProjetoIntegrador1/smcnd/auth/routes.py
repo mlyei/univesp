@@ -5,7 +5,7 @@ from smcnd import db
 
 bp = Blueprint('auth', __name__)
 
-@bp.route('/login', methods=['GET', 'POST'])
+@bp.route('/signin', methods=['GET', 'POST'])
 def auth_login():
     if request.method == 'POST':
         usuario = request.form['Usuario']
@@ -25,7 +25,7 @@ def auth_login():
         #usuario ou senha errados
         else:
             flash('Usuário ou Senha incorretos', 'danger')
-            return render_template('login.html', message='Usuário ou senha inválidos')
+            return render_template('signin.html', message='Usuário ou senha inválidos')
 
 #inscrição na plataforma
 @bp.route('/signup', methods=['GET', 'POST'])
@@ -41,7 +41,7 @@ def signup():
 
         if user:
             flash('Email já existente', 'danger')
-            return redirect(url_for('auth.login'))
+            return redirect(url_for('auth.signin'))
 
         # Cria um novo usuário
         new_user = Usuario(Nome=nome, Email=email)
@@ -52,6 +52,6 @@ def signup():
         db.session.commit()
 
         flash('Usuário Registrado! Por favor realize o login.', 'success')
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('auth.signin'))
 
     return render_template('signup.html')

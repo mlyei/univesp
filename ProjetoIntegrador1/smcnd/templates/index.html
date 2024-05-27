@@ -1,16 +1,85 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SMCND</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css">
-  </head>
-  <body>
-    <h1>Sistema de Monitoramente para Crianças Neuro Divergentes</h1>
-    <a href="#" class="btn btn-primary">acesse</a>
-    <script src="node_module/jquery/dist/jquery.js"></script></script>
-    <script src="node_module/popper.js/dist/popper.js"></script></script>
-    <script src="node_module/bootstrap/dist/bootstrap.js"></script></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Monitoramento para Crianças Neurodivergentes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .content {
+            text-align: center;
+        }
+        .list-group-item {
+            font-size: 1.2rem;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        .align-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="https://blog.matheustriliconeurologia.com.br/wp-content/uploads/2021/12/peca-do-quebra-cabeca-simbolo-do-autismo-1009x1024.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <span>SMCND</span>
+        </a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Cidadão</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Secretária da Educação</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Direção Escolar</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Assistente Educacional</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Responsáveis Legais</a></li>
+            </ul>
+            <a href="/signin.html"><button class="btn btn-dark ml-3" type="button">Acesse SMCND</button></a>
+        </div>
+    </nav>
+
+    <div class="container content">
+        <h1>SISTEMA DE MONITORAMENTO PARA CRIANÇAS NEURODIVERGENTES</h1>
+        <p class="lead">Prefeitura de Bom Jesus dos Perdões</p>
+        <div class="row justify-content-center align-items-center" style="height: 500px;">
+            <div class="col-md-6 align-center">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Cuidados com pessoas neurodivergentes
+                        <a href="#" class="btn btn-link">></a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Profissão: Assistente Educacional
+                        <a href="#" class="btn btn-link">></a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Atendimento
+                        <a href="#" class="btn btn-link">></a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Prefeitura de Bom Jesus dos Perdões
+                        <a href="#" class="btn btn-link">></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6 align-center">
+                <img src="https://img.freepik.com/vetores-gratis/ilustracao-do-conceito-abstrato-de-mindfulness-meditacao-consciente-calma-mental-e-autoconsciencia-foco-e-liberacao-de-estresse-tratamento-domestico-alternativo-de-ansiedade_335657-1043.jpg?w=740&t=st=1716763673~exp=1716764273~hmac=a95e9daa97516bdd88e3f42bebd66ef56197c522d7fa62ee19ce77c6f0aa4573" width="500" height="500" alt="Neurodivergentes" class="img-fluid">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

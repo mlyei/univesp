@@ -6,6 +6,10 @@ bp = Blueprint('main', __name__)
 def index():
     return render_template('index.html')
 
+@bp.auth('/signin')
+def signin():
+    return render_template('signin.html')
+
 @bp.route('/dashboard')
 def dashboard():
     return render_template('dashboard.html')
